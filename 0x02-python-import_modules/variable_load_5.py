@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 
-a = 98
+if _name_ == "_main_":
+    from variable_load_5 import a
+
+    print(a)
