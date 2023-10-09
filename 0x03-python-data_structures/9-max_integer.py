@@ -7,7 +7,7 @@ def max_integer(my_list=[]):
         my_list (list): The list of integers.
 
     Returns:
-        int or None: The largest integer in the list, or None if the list is empty.
+        int or None: The largest integer in the list, or None.
     """
     if not my_list:
         return None
