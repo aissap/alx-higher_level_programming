@@ -114,6 +114,6 @@ class Square:
         """
         if self.__size == 0:
             return ""
-        else:
-            return "\n" * self.__position[1] + \
-                   ("\n" + " " * self.__position[0] + "#" * self.size) * self.__size
+
+        row = "\n" + " " * self.__position[0] + "#" * self.size
+        return ("\n" * self.__position[1] + row * self.__size)
