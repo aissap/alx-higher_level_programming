@@ -3,5 +3,5 @@
 
 
 class Rectangle:
-  """Representation of the rectangle """
-  pass
+    """Representation of the rectangle """
+    pass
