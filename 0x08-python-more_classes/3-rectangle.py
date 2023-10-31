@@ -4,11 +4,11 @@
 
 class Rectangle:
 
-    def __init__(self, w = 0, h = 0):
+    def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
         """
-        self.width = w
-        self.height = h
+        self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -35,11 +35,13 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
     def area(self):
         return (self.__width * self.__height)
 
     def perimeter(self):
         return (2 * (self.__width + self.__height))
+
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ("")
