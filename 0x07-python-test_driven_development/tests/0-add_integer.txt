@@ -1,4 +1,5 @@
-# Test cases for add_integer function
+ Test cases for add_integer function
+------------------------------------
 
 # Test Case 1
 >>> add_integer(2, 3)
@@ -32,58 +33,59 @@
 
 # Test Case 8
 >>> try:
-...     add_integer("hello", 3)
-... except Exception as e:
-...     str(e)
+	add_integer("hello", 3)
+	except Exception as e:
+	str(e)
 'a must be an integer'
 
 # Test Case 9
 >>> try:
-...     add_integer(2, "hello")
-... except Exception as e:
-...     str(e)
+	add_integer(2, "hello")
+	except Exception as e:
+	str(e)
 'b must be an integer'
 
 # Test Case 10
 >>> try:
-...     add_integer(None)
-... except Exception as e:
-...     str(e)
+	add_integer(None)
+	except Exception as e:
+	str(e)
 'a must be an integer'
 
 # Test Case 11
 >>> try:
-...     add_integer(2.3, None)
-... except Exception as e:
-...     str(e)
+	add_integer(2.3, None)
+	except Exception as e:
+	str(e)
 'b must be an integer'
 
-# Special Cases
+ Special Cases
+---------------
 
 # Test Case 12
 >>> try:
-...     add_integer(float('inf'))
-... except Exception as e:
-...     str(e)
+	add_integer(float('inf'))
+	except Exception as e:
+	str(e)
 'cannot convert float infinity to integer'
 
 # Test Case 13
 >>> try:
-...     add_integer(2, float('inf'))
-... except Exception as e:
-...     str(e)
+	add_integer(2, float('inf'))
+	except Exception as e:
+	str(e)
 'cannot convert float infinity to integer'
 
 # Test Case 14
 >>> try:
-...     add_integer(float('nan'))
-... except Exception as e:
-...     str(e)
+	add_integer(float('nan'))
+	except Exception as e:
+	str(e)
 'cannot convert float NaN to integer'
 
 # Test Case 15
 >>> try:
-...     add_integer(2, float('nan'))
-... except Exception as e:
-...     str(e)
+	add_integer(2, float('nan'))
+	except Exception as e:
+	str(e)
 'cannot convert float NaN to integer'

@@ -1,0 +1,51 @@
+# 5-text_indentation.txt
+
+How to Use 5-text_indentation.py
+--------------------------------
+
+This module defines a function ``text_indentation(text)``.
+
+Usage
+-----
+
+``text_indentation(...)``` prints a text with 2 new lines after each '.', '?' and ':'.
+
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    Non autem hoc: igitur ne illud quidem.")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?
+
+    Non autem hoc: igitur ne illud quidem.
+
+
+    >>> text_indentation("Hello! How are you today? I'm good, thank you.")
+    Hello!
+
+    How are you today?
+
+    I'm good, thank you.
+
+Empty Text
+----------
+
+If the input text is empty, the output will be empty as well:
+
+
+    >>> text_indentation("")
+    
+
+Non-String Input
+----------------
+
+If the input is not a string, a TypeError is raised:
+
+    >>> text_indentation(42)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(['Hello', 'World'])
+    Traceback (most recent call last):
+    TypeError: text must be a string

@@ -1,0 +1,32 @@
+# 3-say_my_name.txt
+
+How to Use 3-say_my_name.py
+---------------------------
+
+This module defines a function ``say_my_name(first_name, last_name='')``.
+
+Usage
+-----
+
+``say_my_name(...)``` prints a formatted name string.
+
+
+    >>> say_my_name('John', 'Doe')
+    My name is John Doe
+
+    >>> say_my_name('Jane')
+    My name is Jane 
+
+Non-Strings
+-----------
+
+``say_my_name()`` expects that both arguments are strings.
+If either argument is not a string, a TypeError is raised:
+
+    >>> say_my_name(123, 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name and last_name must be strings
+
+    >>> say_my_name('John', 123)
+    Traceback (most recent call last):
+    TypeError: first_name and last_name must be strings
