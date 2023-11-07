@@ -1,0 +1,27 @@
+# BaseGeometry Class #
+
+Usage:
+------
+
+
+This file contains a special class called `BaseGeometry`.
+
+What is BaseGeometry?
+--------------------
+
+`BaseGeometry` is like a blueprint for making shapes. It knows how to calculate the area of a shape, but it needs more information about the specific shape.
+
+
+ 1. Calculate Area
+------------------
+
+- To find the area of a shape, use the `area()` method.
+- If you try to use it now, it will say "I don't know how to do that yet!"
+
+  2. Validate Numbers
+  -------------------
+- Use `integer_validator(name, value)` to check if a number is valid.
+- It needs a `name` (like "width" or "height") and a `value` to check.
+- If the `value` isn't a whole number, or if it's less than or equal to zero, it will say "That's not right!"
+
+That's it! Now you know how to use `BaseGeometry`. Keep practicing and you'll get the hang of it!
