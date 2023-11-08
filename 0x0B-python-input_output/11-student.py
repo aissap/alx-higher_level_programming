@@ -22,6 +22,7 @@ class Student:
                     for attr in attrs
                     if hasattr(self, attr)
                     }
+
     def reload_from_json(self, json):
         """Replace attributes of the Student.
         Args:
