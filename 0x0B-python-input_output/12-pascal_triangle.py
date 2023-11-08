@@ -9,18 +9,15 @@ def pascal_triangle(n):
         return []
 
     """Initialize the triangle"""
-    triangle = []
+    triangle = [[1]]
 
     """Generate the remaining rows"""
-    for i in range(n):
+    while len(triangles) != n:
+        t = triangles[-1]
         row = []
-        for j in range(1 + i):
-            if j == 0 or j == i:
-                row.append(1)
-            else:
-                value = triangle[i-1][j-1] + triangle[i-1][j]
-                row.append(value)
+        for j in range(len(t) - 1):
+            row.append(t[j] + t[j + 1])
+        row.append(1)
         triangle.append(row)
-
         """Return the resulting Pascal's triangle"""
-        return (triangle)
+    return (triangle)
