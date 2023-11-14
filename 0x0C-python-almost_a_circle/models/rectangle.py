@@ -19,8 +19,8 @@ class Rectangle(Base):
         '''
         self.width = width
         self.height = height
-        self.__x = x
-        self.__y = y
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -89,7 +89,7 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         elif value < 0:
-            raise ValueError("x must be > 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
