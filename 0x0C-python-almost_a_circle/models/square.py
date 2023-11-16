@@ -23,3 +23,29 @@ class Square(Rectangle):
 
         return "[Square] ({}) {}/{} - {}". \
             format(type(self).__name__, self.id, self.x, self.y, self.width)
+
+    @property
+    def size(self):
+        '''Getter for the size of the square'''
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        '''Set the size of the square'''
+        self.width = value
+        self.height = value
+
+    def update(self, *args, **kwargs):
+        '''Update attributes of the square'''
+        attrs = ["id", "size", "x", "y"]
+        if args:
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key in attrs:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''Return the dictionary'''
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
