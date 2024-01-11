@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function addMeMaybe(number, thefunction) {
+function addMeMaybe (number, thefunction) {
   thefunction(number + 1);
 }
 
