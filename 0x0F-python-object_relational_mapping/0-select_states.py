@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 Connects to a MySQL server and lists all states from the database"""
+
 import MySQLdb
 import sys
 
