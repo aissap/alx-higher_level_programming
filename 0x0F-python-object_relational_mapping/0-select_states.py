@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Script that connects to a MySQL server and lists all states from the database hbtn_0e_0_usa.
-"""
+Connects to a MySQL server and lists all states from the database"""
 import MySQLdb
 import sys
 
