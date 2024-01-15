@@ -5,6 +5,7 @@ Lists all states with a name starting with N from the database
 import MySQLdb
 import sys
 
+
 def filter_states(username, password, database):
     db = MySQLdb.connect(
         host="localhost",
@@ -15,8 +16,8 @@ def filter_states(username, password, database):
     )
 
     cursor = db.cursor()
-
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    que = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    cursor.execute(que)
 
     rows = cursor.fetchall()
     for row in rows:
@@ -24,6 +25,7 @@ def filter_states(username, password, database):
 
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
