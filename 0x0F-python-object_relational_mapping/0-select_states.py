@@ -36,5 +36,4 @@ if __name__ == "__main__":
     finally:
         if cursor:
             cursor.close()
-        if connection:
-            connection.close()
+        if connection:            connection.close()
