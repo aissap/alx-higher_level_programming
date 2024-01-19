@@ -18,7 +18,7 @@ if __name__ == "__main__":
     cursor.execute(query)
     result_rows = cursor.fetchall()
     for row in result_rows:
-        print(row)
+        print("({}, '{}', '{}')".format(row[0], row[1], row[2]))
 
     cursor.close()
     database.close()
