@@ -8,17 +8,21 @@ if __name__ == "__main__":
                                passwd=sys.argv[2], db=sys.argv[3], port=3306)
     cursor = database.cursor()
 
+    state_name = sys.argv[4]
+
     query = """
-            SELECT cities.id, cities.name, states.name
+            SELECT cities.name
             FROM cities
             JOIN states ON cities.state_id = states.id
+            WHERE states.name = %s
             ORDER BY cities.id ASC
             """
 
-    cursor.execute(query)
+    cursor.execute(query, (state_name,))
     result_rows = cursor.fetchall()
-    for row in result_rows:
-        print("({}, '{}', '{}')".format(row[0], row[1], row[2]))
+
+    cities_list = [row[0] for row in result_rows]
+    print(', '.join(cities_list))
 
     cursor.close()
     database.close()

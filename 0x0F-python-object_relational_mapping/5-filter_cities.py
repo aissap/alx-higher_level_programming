@@ -4,26 +4,29 @@ import sys
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state>".format(sys.argv[0]))
-        sys.exit(1)
-
-    username, password, database_name, state_name = sys.argv[1:5]
-
-    database = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database_name, port=3306)
-
+    database = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                               passwd=sys.argv[2], db=sys.argv[3], port=3306)
     cursor = database.cursor()
 
-    cursor.execute("SELECT cities.id, cities.name, states.name \
-                    FROM cities \
-                    JOIN states ON cities.state_id = states.id \
-                    WHERE states.name = %s \
-                    ORDER BY cities.id ASC", (state_name,))
+    state_name = sys.argv[4]
 
-    rows = cursor.fetchall()
+    query = """
+            SELECT cities.name
+            FROM cities
+            JOIN states ON cities.state_id = states.id
+            WHERE states.name = %s
+            ORDER BY cities.id ASC
+            """
+
+    cursor.execute(query, (state_name,))
+    result_rows = cursor.fetchall()
+
+    # Extract city names from the result rows
+    cities_list = [row[0] for row in result_rows]
+
+    # Format the output as a comma-separated string
+    cities_str = ', '.join(cities_list)
+    print(cities_str)
 
     cursor.close()
     database.close()
-
-    for row in rows:
-        print(row)
