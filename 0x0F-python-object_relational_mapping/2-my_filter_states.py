@@ -9,16 +9,16 @@ import sys
 def filter_states_by_input(username, password, database, state_name):
     db = MySQLdb.connect(
         host="localhost",
-        user=username,
-        passwd=password,
-        db=database,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
         port=3306
     )
 
     cursor = db.cursor()
 
-    que = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
-    cursor.execute(que)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+    cursor.execute(query)
 
     rows = cursor.fetchall()
     for row in rows:
