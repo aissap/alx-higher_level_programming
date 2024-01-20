@@ -12,9 +12,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id).distinct()
+    state_to_update = session.query(State).filter(State.id == 2).first()
 
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
-
+    if state_to_update:
+        state_to_update.name = "New Mexico"
+        session.commit()
     session.close()
