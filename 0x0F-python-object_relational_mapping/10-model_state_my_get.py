@@ -6,21 +6,22 @@ from model_state import Base, State
 from sys import argv
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                           format(argv[1], argv[2], argv[3]))
+    if len(argv) == 5:
+        engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                               .format(argv[1], argv[2], argv[3]))
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)
+        session = Session()
 
-    Base.metadata.create_all(engine)
+        state_to_search = argv[4]
+        result_state = session.query(State).filter(State.name == state_to_search).first()
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+        if result_state:
+            print(result_state.id)
+        else:
+            print("Not found")
 
-    state_to_search = argv[4]
-    result_state = (
-        session.query(State.id)
-        .filter(State.name == state_to_search)
-        .first()
-    )
-
-    print(result_state.id) if result_state else print("Not found")
-
-    session.close()
+        session.close()
+    else:
+        print("Usage: {} <username> <password> <database> <state_name>".format(argv[0]))
+        exit(1)
