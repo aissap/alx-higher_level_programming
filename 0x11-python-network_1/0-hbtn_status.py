@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 """
-Fetches https://alx-intranet.hbtn.io/status
-and displays information about the response body.
+This program fetches information from a website and shows it.
 """
+
 import urllib.request
 
+# The URL we want to get information from
+url = "https://alx-intranet.hbtn.io/status"
 
-if __name__ == "__main__":
-    url = "https://alx-intranet.hbtn.io/status"
+# Open the URL and get the response
+with urllib.request.urlopen(url) as response:
+    # Read the response body
+    body = response.read()
 
-    with urllib.request.urlopen(url) as response:
-        body = response.read()
-
-    print("Body response:\n")
-    print(f"\t- type: {type(body)}\n")
-    print(f"\t- content: {body}\n")
-    print(f"\t- utf8 content: {body.decode('utf-8')}")
+# Display the response information
+print("Body response:")
+print("\t- type:", type(body))
+print("\t- content:", body)
+print("\t- utf8 content:", body.decode("utf-8"))
