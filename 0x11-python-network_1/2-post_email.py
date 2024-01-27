@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This program sends an email to a URL using a POST request and prints the response.
+Send an email to a URL using a POST request and prints the response.
 """
 import urllib.parse
 import urllib.request
