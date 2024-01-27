@@ -21,9 +21,12 @@ if __name__ == "__main__":
         # Try to parse the response as JSON
         json_response = response.json()
 
-        # If the JSON is properly formatted and not empty, display the id and name
         if json_response:
-            print("[{}] {}".format(json_response.get("id"), json_response.get("name")))
+            print("[{}] {}".format(
+                json_response.get("id"),
+                json_response.get("name")
+                ))
+
         else:
             # If the JSON is empty, display "No result"
             print("No result")
