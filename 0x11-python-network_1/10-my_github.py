@@ -12,7 +12,8 @@ if __name__ == "__main__":
     password = sys.argv[2]
 
     # Send a GET request to the GitHub API with Basic Authentication
-    response = requests.get('https://api.github.com/user', auth=(username, password))
+    response = requests.get('https://api.github.com/user',
+                            auth=(username, password))
     
     # Check if the request is successful
     if response.status_code == 200:
